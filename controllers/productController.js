@@ -57,12 +57,26 @@ class ProductAction {
                 const {id} = req.params
                 const product = await Product.findByIdAndDelete(id);
                 if(!product) {
-                    return res.status(404).json({message: `cannot find product with ID ${id}`})
+                    return res.status(404).json({message: `cannot find product with ID ${_id}`})
                 }
                 res.status(200).json({message: 'Delete Success',product})
 
             } catch(error) {
                 res.status(500).json({message: error.message})
+            }
+        }
+        async upadateMany (req, res) {
+            const productIds = req.body.productIds
+            console.log("Received productIds:", productIds);
+            try {
+                const product = await Product.updateMany(
+                    {_id: {$in : productIds}},
+                    {$set: {isSold: true}}
+                );
+                res.status(500).json({message: 'Update success'})
+
+            }catch(err) {
+                res.status(500).json({message: err.message})
             }
         }
 }

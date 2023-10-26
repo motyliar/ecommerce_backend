@@ -9,7 +9,8 @@ router.get('/:id', Product.getProduct)
 
 router.post('/', Product.sendProduct)
 
-router.put('/:id', Product.updateProduct)
+router.put('/update/:id', Product.updateProduct)
+router.put('/update', Product.upadateMany)
 
 router.delete('/:id', Product.deleteProduct)
 

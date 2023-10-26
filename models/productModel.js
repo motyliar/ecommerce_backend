@@ -9,6 +9,7 @@ const productSchema = mongoose.Schema({
     price: {type: Number, required: true},
     dimensionHeight: {type: Number, required: true},
     dimensionWidth: {type: Number, required: true},
+    description: {type: String, required: true},
     weight: {type: Number, required: true},
     isNew: {type: Boolean, required: false, default: false },
     isSold: {type: Boolean, required: false, default: false},

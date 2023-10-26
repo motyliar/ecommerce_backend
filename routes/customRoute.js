@@ -9,6 +9,8 @@ router.get('/:id', custom.getSingleCustom)
 
 router.post('/', custom.postCustom)
 
+router.put('/:id', custom.updateCustom)
+
 router.delete('/:id', custom.deleteCustom)
 
 
